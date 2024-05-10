@@ -1,1 +1,3 @@
-. "$(dirname "$0")/_/huscky.sh"
+#!/bin/sh
+yarn build 
+# && npx --no-install commitlint --edit $1

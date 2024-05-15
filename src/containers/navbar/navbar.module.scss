@@ -1,37 +1,178 @@
-// navbar.module.scss
+@media (min-width: 1080px) {
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: var(--red-900);
 
-.navbar {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 3rem;
-  padding: 2rem;
-
-  &.light {
-    background-color: var(--white-300);
+    img {
+      width: 50px;
+    }
   }
 
-  &.dark {
-    background-color: var(--black-700);
+  .navBarOpen {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
   }
 
-  img {
-    width: 100px;
+  .socialMedia {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 65%;
+  }
+
+  .midia {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100% ;
+
+    p {
+      font-size: 3rem;
+    }
+
+    img {
+      margin-left: 2rem;
+      width: 50px;
+    }
+  }
+
+  .otherFields {
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+  }
+
+  .navBarClose {
+    background-color: var(--red-900);
+    display: flex;
+    justify-content: end;
+    padding: 1rem;
+    height: 20%;
   }
 
   .navigation {
+    padding: 2rem;
+    background-color: #1D1D2E;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: end;
+  }
+
+  .text {
+    margin-top: 1.5rem;
+    font-size: 3rem;
+    cursor: pointer;
+    color: white;
+  }
+}
+
+@media (max-width: 1080px) {
+
+  .navbar {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: var(--red-900);
 
-    .text {
-      margin-left: 2rem;
-      font-size: 1.5rem;
-      cursor: pointer;
-
-      &:last-child {
-        margin-right: 0;
-      }
+    img {
+      width: 50px;
     }
   }
+
+  .navBarOpen {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .socialMedia {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .midia {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    p {
+      font-size: 2rem;
+    }
+
+    img {
+      margin-left: 2rem;
+      width: 50px;
+    }
+  }
+
+  .otherFields {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navBarClose {
+    background-color: var(--red-900);
+    display: flex;
+    justify-content: end;
+    padding: 1rem;
+  }
+
+  .navigation {
+    padding: 2rem;
+    background-color: #1D1D2E;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .text {
+    margin-top: 1.5rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
+  }
+}
+
+@media (max-width: 720px) {
+
+  .midia {
+    p {
+      font-size: 1.5rem;
+    }
+  }
+
+  .text {
+    font-size: 1.5rem;
+  }
+}
+
+.github {
+  background-color: var(--github);
+}
+
+.likedin {
+  background-color: var(--likedin);
+}
+
+.whatsapp {
+  background-color: var(--whatsapp);
 }

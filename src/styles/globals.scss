@@ -19,11 +19,13 @@
   --green-900: #3fffa3;
   --red-900: #FF3F4B;
 
-}
+  --red-100: red;
+  --red-200: firebrick;
 
-.container {
-  padding: 3rem 3rem;
-  height: 100vh;
+  --github: #333333;
+  --likedin: #0077B5;
+  --whatsapp: #14E956;
+
 }
 
 .light {
@@ -59,4 +61,6 @@ body, input, textarea, select, button {
   html {
     font-size: 93.75%; // vai gerar 15px;
   }
+
+
 }

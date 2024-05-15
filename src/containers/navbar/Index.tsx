@@ -1,45 +1,98 @@
 import {useState, useContext} from "react";
-import LogoWhite from "@/assets/light.png";
 import LogoBlack from "@/assets/dark.png";
 import styles from "./navbar.module.scss";
-import Link from "next/link";
-import {HeadingLight, HeadingBlack} from "@/assets/icons/heading";
-import {ThemeContext} from "@/context/ThemeContext";
+import {HeadingBlack} from "@/assets/icons/heading";
+import {Hamburguer} from "@/assets/icons/hamburguer";
+import {Cancel} from "@/assets/icons/cancel";
+import GitHub from "@/assets/midias/logo.png";
+import LikedIn from "@/assets/midias/likedin.png";
+import WhatsApp from "@/assets/midias/whastapp.png"
 
-interface NavBarProps {
-    onThemeChange: (theme: "light" | "dark") => void;
-}
+export default function NavBar() {
 
-export default function NavBar({onThemeChange}: NavBarProps) {
-    const themeContext = useContext(ThemeContext)
-    const [theme, setTheme] = useState<"light" | "dark">("light");
+    const [menu, setMenu] = useState<boolean>(true);
 
-    const toggleTheme = () => {
-        const newTheme = theme === "light" ? "dark" : "light";
-        setTheme(newTheme);
-        onThemeChange(newTheme);
-        themeContext.setTheme(newTheme);
+    const toggleMenu = () => {
+        setMenu(!menu)
+    }
+
+    const openPDF = () => {
+        window.open('public/Gabriel.pdf', '_blank');
     };
 
     return (
         <>
-            <div className={`${styles.navbar} ${styles[theme]}`}>
-                <img src={theme === "light" ? LogoBlack.src : LogoWhite.src} alt="Logo"/>
-                <div className={styles.navigation}>
-                    <Link href="#project">
-                        <span className={styles.text}>Projeto</span>
-                    </Link>
-                    <Link href="#about">
-                        <span className={styles.text}>Sobre mim</span>
-                    </Link>
-                    <Link href="#contact">
-                        <span className={styles.text}>Contato</span>
-                    </Link>
-                    <a className={styles.text} onClick={toggleTheme}>
-                        {theme === "light" ? <HeadingBlack size={30}/> : <HeadingLight size={30}/>}
-                    </a>
-                </div>
+            <div className={styles.navbar}>
+                <img src={LogoBlack.src}
+                     alt="Logo"/>
+                <a onClick={toggleMenu}>
+                    {
+                        menu ? <Cancel size={50}/> : <Hamburguer size={50}/>
+                    }
+                </a>
             </div>
+            {
+                menu ? (
+                    <div className={styles.navBarOpen}>
+                        <div className={styles.socialMedia}>
+                            <a className={` ${styles.midia} ${styles.github}`}
+                               href="https://github.com/amaralzando"
+                               target="_blank" rel="noopener noreferrer"
+                               onClick={() => setMenu(!menu)}
+                            >
+                                <p> GitHub</p>
+                                <img src={GitHub.src}/>
+                            </a>
+                            <a className={` ${styles.midia} ${styles.likedin}`}
+                               href="https://www.linkedin.com/in/gabrielasandrade/"
+                               target="_blank" rel="noopener noreferrer"
+                               onClick={() => setMenu(!menu)}
+                            >
+                                <p> LikedIn</p>
+                                <img src={LikedIn.src}/>
+                            </a>
+                            <a className={` ${styles.midia} ${styles.whatsapp}`}
+                               href="https://wa.me/5511949885326"
+                               target="_blank" rel="noopener noreferrer"
+                               onClick={() => setMenu(!menu)}
+                            >
+                                <p> WhatsApp</p>
+                                <img src={WhatsApp.src}/>
+                            </a>
+
+                        </div>
+                        <div className={styles.otherFields}>
+                            <div className={styles.navBarClose}>
+                                <a onClick={toggleMenu}>
+                                    {
+                                        menu ? <Cancel size={50}/> : <Hamburguer size={50}/>
+                                    }
+                                </a>
+                            </div>
+                            <div className={styles.navigation}>
+                                <a className={styles.text} href="#project" onClick={() => setMenu(!menu)}>
+                                    Projeto
+                                </a>
+                                <a className={styles.text} href="#about" onClick={() => setMenu(!menu)}>
+                                    Sobre mim
+                                </a>
+                                <a className={styles.text}
+                                   href={"https://docs.google.com/document/d/1M6oqqPraye-zT2eTsW2_8NO5_gy5pEqOQ3WXudA9Vlg/edit?usp=sharing"}
+                                >
+                                    Resume
+                                </a>
+                                <a className={styles.text} href="mailto:gaamaralpessoal@gmail.com" onClick={() => setMenu(!menu)}>
+                                    Contato
+                                </a>
+                                <a className={styles.text}>
+                                    <HeadingBlack size={30}/>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                ) : null
+            }
         </>
     );
 }

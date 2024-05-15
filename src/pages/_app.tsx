@@ -5,21 +5,17 @@ import {useState} from "react";
 import Head from "next/head";
 import {ThemeProvider} from "@/context/ThemeContext";
 
-interface NavBarProps {
-    onThemeChange: (theme: "light" | "dark") => void;
-}
+export default function App({Component, pageProps}: AppProps) {
 
-export default function App({Component, pageProps}: AppProps, { onThemeChange }:NavBarProps) {
-
-    const [theme, setTheme] = useState<"light" | "dark">('light')
+    const [theme, setTheme] = useState<"light" | "dark">('dark')
 
     return (
         <ThemeProvider>
-            <div className={`container ${theme}`}>
+            <div className={theme}>
                 <Head>
-                    <title>Portifólio do Grabriel</title>
+                    <title>Portifólio Grabriel</title>
                 </Head>
-                <NavBar onThemeChange={newTheme => setTheme(newTheme)}/>
+                <NavBar />
                 <Component {...pageProps} />
             </div>
         </ThemeProvider>

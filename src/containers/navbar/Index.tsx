@@ -10,7 +10,7 @@ import WhatsApp from "@/assets/midias/whastapp.png"
 
 export default function NavBar() {
 
-    const [menu, setMenu] = useState<boolean>(true);
+    const [menu, setMenu] = useState<boolean>(false);
 
     const toggleMenu = () => {
         setMenu(!menu)
@@ -77,7 +77,7 @@ export default function NavBar() {
                                     Sobre mim
                                 </a>
                                 <a className={styles.text}
-                                   href={"https://docs.google.com/document/d/1M6oqqPraye-zT2eTsW2_8NO5_gy5pEqOQ3WXudA9Vlg/edit?usp=sharing"}
+                                   href={"public/Gabriel.pdf"}
                                 >
                                     Resume
                                 </a>
